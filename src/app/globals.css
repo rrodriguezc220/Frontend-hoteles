@@ -19,3 +19,62 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*
+Colores de la paleta
+Primary: #4c8ca4
+Secondary: #090605
+complementary_1: #cc9935
+complementary_1: #b2382b
+complementary_1: #404e7e
+
+primary-50: #f2f8f9
+primary-100: #ddecf0
+primary-200: #c0dae1
+primary-300: #94bfcc
+primary-400: #609bb0
+primary-500: #4c8ca4
+primary-600: #3c697e
+primary-700: #365768
+primary-800: #324a58
+primary-900: #2e3f4b
+primary-950: #1a2832
+
+*/
+
+.btn-p {
+  background: #4c8ca4;
+  color: white;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+}
+
+.btn-p:hover {
+  background: #3c697e;
+}
+
+.btn-outline-p {
+  background: transparent;
+  color: #4c8ca4;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  border-color: #4c8ca4;
+  border: 1px solid;
+}
+
+.btn-outline-p:hover {
+  background: #4c8ca4;
+  color: white;
+}

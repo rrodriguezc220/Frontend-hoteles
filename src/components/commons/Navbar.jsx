@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { IoIosMenu } from "react-icons/io";
+import NavLinks from './NavLinks';
+import ButtonAuth from '../access/ButtonAuth';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,30 +14,34 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-gray-800 p-4">
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="flex items-center">
-                    <img src="/path/to/logo.png" alt="Logo" className="h-8 w-8 mr-2" />
-                    <span className="text-white text-xl font-bold">Hotel</span>
+        <nav className="bg-[#ddecf0]" >
+            <div className="p-4 max-w-[1280px] mx-auto flex justify-between items-center">
+                <div>
+                    <a className="flex items-center" href='/'>
+                        <img src="../logo_313x307.png" alt="Logo" className="h-8 w-8 mr-2" />
+                        <span className="text-xl">Hotel</span>
+                    </a>
                 </div>
                 <div className="hidden md:flex space-x-4">
-                    <a href="#" className="text-white hover:text-gray-400">Home</a>
-                    <a href="#" className="text-white hover:text-gray-400">About</a>
-                    <a href="#" className="text-white hover:text-gray-400">Services</a>
-                    <a href="#" className="text-white hover:text-gray-400">Contact</a>
+                    <NavLinks />
+                    <div>
+                        <ButtonAuth />
+                        {/* Para usar el ícono importado se usa de la manera anterior */}
+                    </div>
                 </div>
+
                 <div className="md:hidden">
-                    <button onClick={toggleMenu} className="text-white focus:outline-none">
+                    <button onClick={toggleMenu} className="focus:outline-none">
                         {isOpen ? <IoMdClose className="h-6 w-6" /> : <IoIosMenu className="h-6 w-6" />}
                     </button>
                 </div>
             </div>
             {isOpen && (
-                <div className="md:hidden">
-                    <a href="/" className="block text-white hover:text-gray-400 p-2">Home</a>
-                    <a href="/reservaciones" className="block text-white hover:text-gray-400 p-2">Reservaciones</a>
-                    <a href="/huespedes" className="block text-white hover:text-gray-400 p-2">Huespedes</a>
-                    <a href="/habitaciones" className="block text-white hover:text-gray-400 p-2">Habitaciones</a>
+                <div className="md:hidden flex flex-col items-center">
+                    <NavLinks />
+                    <div>
+                        <ButtonAuth />
+                    </div>
                 </div>
             )}
         </nav>
