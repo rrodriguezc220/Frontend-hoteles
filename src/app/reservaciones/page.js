@@ -1,20 +1,18 @@
-"use client";
+
 
 import SearchReservation from "@/components/reservations/SearchReservation";
 import TableReservation from "@/components/reservations/TableReservation";
 import TableReservationSkeleton from "@/components/skeletons/TableReservationSkeleton";
-import { useSession } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route.js";
 
 import { Suspense } from "react";
 
-export default function Reservaciones() {
+export default async function Reservaciones({searchParams}) {
 
-    const { data: session, status } = useSession();
-    const searchParams = useSearchParams();
-
-    const search = searchParams.get("search") || "";
-    const currentPage = searchParams.get("page") || "1";
+    const session = await getServerSession(authOptions);
+    const search = searchParams?.search || "";
+    const currentPage = searchParams?.page || "1";
     const token = session?.user?.token || "";
 
     return (

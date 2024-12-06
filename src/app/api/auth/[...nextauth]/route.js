@@ -1,8 +1,11 @@
+// src/app/api/auth/[...nextauth]/route.js
+
 import { postLogin } from "@/services/access";
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const handler = NextAuth({
+// Definir authOptions
+export const authOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -11,7 +14,6 @@ const handler = NextAuth({
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials) {
-                
                 const response = await postLogin(credentials?.username, credentials?.password);
 
                 if (response && response.token) {
@@ -38,6 +40,10 @@ const handler = NextAuth({
         signIn: "/acceso/login",
         signOut: "/",
     }
-})
+};
 
-export { handler as GET, handler as POST }
+// Crear el manejador de NextAuth
+const handler = NextAuth(authOptions);
+
+// Exportar los métodos para el API (GET y POST)
+export { handler as GET, handler as POST };

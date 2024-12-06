@@ -1,9 +1,8 @@
 "use client";
 
-import ButtonAuth from "@/components/access/ButtonAuth";
-import z from "zod";
-import { loginSchema } from "@/services/zod";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
@@ -44,7 +43,7 @@ export default function Login() {
                             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')" }}>
                         </div>
                         <div className="w-full p-8 lg:w-1/2">
-                            <img src="../logo_313x307.png" className="h-36 w-36 mx-auto" />
+                            <Image src="/logo_313x307.png" className="h-36 w-36 mx-auto" alt="Logo del Hotel" width={144} height={144}/>
                             <p className="text-xl text-center">Bienvenido!</p>
                             <div className="mt-4 flex items-center justify-between">
                                 <span className="border-b w-1/5 lg:w-1/4"></span>
@@ -72,7 +71,7 @@ export default function Login() {
                             </div>
                             <div className="mt-4 flex items-center justify-between">
                                 <span className="border-b w-1/5 md:w-1/4"></span>
-                                <a href="#" className="text-xs text-gray-500 uppercase hover:text-yellow-600">o regístrate</a>
+                                <Link href="#" className="text-xs text-gray-500 uppercase hover:text-yellow-600">o regístrate</Link>
                                 <span className="border-b w-1/5 md:w-1/4"></span>
                             </div>
                         </div>

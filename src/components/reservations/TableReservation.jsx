@@ -5,7 +5,6 @@ import { MdDeleteOutline, MdEdit, MdFormatListBulleted  } from "react-icons/md";
 export default async function TableReservation({ search, currentPage, token }) {
     let reservas = await getReservations(search, currentPage, token);
     let data = reservas.paginatedData || [];
-
     let totalPages = reservas.totalPages || 0;
 
     return (

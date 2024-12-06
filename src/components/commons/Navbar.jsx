@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { IoIosMenu } from "react-icons/io";
 import NavLinks from './NavLinks';
 import ButtonAuth from '../access/ButtonAuth';
+import Link from 'next/link';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,10 @@ const Navbar = () => {
         <nav className="bg-[#ddecf0]" >
             <div className="p-4 max-w-[1280px] mx-auto flex justify-between items-center">
                 <div>
-                    <a className="flex items-center" href='/'>
+                    <Link className="flex items-center" href='/'>
                         <img src="../logo_313x307.png" alt="Logo" className="h-8 w-8 mr-2" />
                         <span className="text-xl">Hotel</span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="hidden md:flex space-x-4">
                     <NavLinks />
