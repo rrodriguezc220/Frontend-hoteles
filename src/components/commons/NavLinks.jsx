@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 
 const links = [ 
     {name: 'Reservaciones', href: '/reservaciones'},
-    {name: 'Huéspedes', href: '#'},
+    {name: 'Huéspedes', href: '/huespedes'},
     {name: 'Habitaciones', href: '#'},
 ];
 

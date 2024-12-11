@@ -1,3 +1,5 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
 const PATH = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -18,9 +20,17 @@ let Reserva = {
     habitacion: [],
 };
 
+async function getToken() {
+    const session = await getServerSession(authOptions);
+    return session?.user?.token || "";
+}
+
 const ITEMS_PER_PAGE = 6;
 
-export async function getReservations(search, currentPage, token) {
+export async function getReservations(search, currentPage) {
+
+    const token = await getToken();
+
     try {
         const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 

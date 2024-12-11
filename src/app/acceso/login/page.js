@@ -20,8 +20,6 @@ export default function Login() {
             // Intentar iniciar sesión
             const result = await signIn("credentials", { username: username, password: password, redirect: false });
 
-            console.log(result);
-
             if (result.error) {
                 setErrorMessage("Credenciales inválidas o error en el servidor.");
             } else {
@@ -71,7 +69,7 @@ export default function Login() {
                             </div>
                             <div className="mt-4 flex items-center justify-between">
                                 <span className="border-b w-1/5 md:w-1/4"></span>
-                                <Link href="#" className="text-xs text-gray-500 uppercase hover:text-yellow-600">o regístrate</Link>
+                                <Link href="/acceso/register/" className="text-xs text-gray-500 uppercase hover:text-yellow-600">o regístrate</Link>
                                 <span className="border-b w-1/5 md:w-1/4"></span>
                             </div>
                         </div>
