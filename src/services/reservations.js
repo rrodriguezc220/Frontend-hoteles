@@ -1,5 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
+import { auth } from "@/auth";
 
 const PATH = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -21,7 +20,7 @@ let Reserva = {
 };
 
 async function getToken() {
-    const session = await getServerSession(authOptions);
+    const session = await auth();
     return session?.user?.token || "";
 }
 
@@ -90,7 +89,7 @@ export async function getReservations(search, currentPage) {
 
         const paginatedData = data.slice(offset, offset + ITEMS_PER_PAGE);
 
-        return {paginatedData, totalPages};
+        return { paginatedData, totalPages };
 
     } catch (error) {
         return [];

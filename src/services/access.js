@@ -1,3 +1,4 @@
+"use server";
 
 const PATH = process.env.NEXT_PUBLIC_BACKEND_AUTH;
 

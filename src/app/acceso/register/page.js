@@ -18,17 +18,17 @@ export default function Register() {
             const username = data.get("username");
             const password = data.get("password");
 
-            console.log(response);
-
             if (response.token) {
-                // Iniciar sesión
-                console.log("Iniciar sesión");
-                const result = await signIn("credentials", { username: username, password: password, redirect: false });
+                const result = await signIn("credentials", {
+                    email: username,
+                    password: password,
+                    redirect: false
+                });
 
+                setErrorMessage(null);
                 if (result.error) {
                     setErrorMessage("Credenciales inválidas o error en el servidor.");
                 } else {
-                    setErrorMessage(null);
                     window.location.href = "/";
                 }
 

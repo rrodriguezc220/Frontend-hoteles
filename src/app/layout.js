@@ -13,14 +13,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
       <body className="font-sans antialiased">
         <SessionAuthProvider>
-          {/* Componente Navbar */}
-          <Navbar />
-          <main className="max-w-[1280px] mx-auto">
-            {children}</main>
-          {/* Componente Footer */}
-          <Footer />
+          <div className="relative min-h-screen">
+            <Navbar />
+            <main className="pb-24">{children}</main>
+            <div className="absolute bottom-0 w-full">
+              <Footer />
+            </div>
+          </div>
         </SessionAuthProvider>
       </body>
     </html>

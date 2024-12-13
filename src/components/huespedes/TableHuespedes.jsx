@@ -3,6 +3,7 @@ import { getHuespedes } from "@/services/huespedes";
 import Pagination from "../commons/Pagination";
 import { MdDeleteOutline, MdEdit, MdFormatListBulleted  } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
+import Link from "next/link";
 
 export default async function TableHuespedes({ search, currentPage }) {
 
@@ -45,15 +46,15 @@ export default async function TableHuespedes({ search, currentPage }) {
                                             <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{item.telefonoHuesped}</td>
                                             <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{item.direccionHuesped}</td>
                                             <td className="flex p-5 items-center gap-0.5">
-                                                <button className="p-2 rounded-full group transition-all duration-500 hover:bg-yellow-500 flex item-center text-yellow-500 hover:text-white">
+                                                {/* <Link className="p-2 rounded-full group transition-all duration-500 hover:bg-yellow-500 flex item-center text-yellow-500 hover:text-white">
                                                     <MdEdit />
-                                                </button>
-                                                <button className="p-2  rounded-full group transition-all duration-500 hover:bg-indigo-600 flex item-center text-indigo-600 hover:text-white">
+                                                </Link>
+                                                <Link className="p-2  rounded-full group transition-all duration-500 hover:bg-indigo-600 flex item-center text-indigo-600 hover:text-white">
                                                     <MdFormatListBulleted />
-                                                </button>
-                                                <button className="p-2 rounded-full group transition-all duration-500 hover:bg-red-600 flex item-center text-red-600 hover:text-white">
+                                                </Link> */}
+                                                <Link className="p-2 rounded-full group transition-all duration-500 hover:bg-red-600 flex item-center text-red-600 hover:text-white" href={`/huespedes/delete/${item.idHuesped}`} >
                                                     <MdDeleteOutline />
-                                                </button>
+                                                </Link>
                                             </td>
                                         </tr>
                                     ))

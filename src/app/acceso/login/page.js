@@ -6,28 +6,36 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
+
     const [errorMessage, setErrorMessage] = useState(null);
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
 
         const data = new FormData(e.target);
-        const username = data.get("username");
-        const password = data.get("password");
+
+        const credentials = {
+            email: data.get("email"),
+            password: data.get("password"),
+        };
 
         try {
-
+            setErrorMessage(null);
             // Intentar iniciar sesión
-            const result = await signIn("credentials", { username: username, password: password, redirect: false });
+            const result = await signIn("credentials", {
+                email: credentials.email,
+                password: credentials.password,
+                redirect: false
+            });
 
             if (result.error) {
                 setErrorMessage("Credenciales inválidas o error en el servidor.");
             } else {
-                setErrorMessage(null);
                 // Redirigir al home
                 window.location.href = "/";
             }
-        } catch (validationError) {
+        } catch (error) {
             setErrorMessage("Los datos ingresados no son válidos.");
         }
     };
@@ -50,7 +58,7 @@ export default function Login() {
                             </div>
                             <div className="mt-4">
                                 <label className="block text-sm font-bold mb-2">Email</label>
-                                <input className="focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:border-[#3c697e]" name="username" type="email" />
+                                <input className="focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none focus:border-[#3c697e]" name="email" type="email" />
                             </div>
                             <div className="mt-4">
                                 <div className="flex justify-between">

@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 const links = [ 
     {name: 'Reservaciones', href: '/reservaciones'},
     {name: 'Huéspedes', href: '/huespedes'},
-    {name: 'Habitaciones', href: '#'},
 ];
 
 export default function NavLinks() {

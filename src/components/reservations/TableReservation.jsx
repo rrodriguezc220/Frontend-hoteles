@@ -23,7 +23,7 @@ export default async function TableReservation({ search, currentPage }) {
                                     <th scope="col" className="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> F. Inicio </th>
                                     <th scope="col" className="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> F. Fin </th>
                                     <th scope="col" className="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Estado </th>
-                                    <th scope="col" className="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Actions </th>
+                                    {/* <th scope="col" className="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Actions </th> */}
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-300 ">
@@ -62,7 +62,7 @@ export default async function TableReservation({ search, currentPage }) {
                                                     </div>
                                                 )}
                                             </td>
-                                            <td className="flex p-5 items-center gap-0.5">
+                                            {/* <td className="flex p-5 items-center gap-0.5">
                                                 <button className="p-2 rounded-full group transition-all duration-500 hover:bg-yellow-500 flex item-center text-yellow-500 hover:text-white">
                                                     <MdEdit />
                                                 </button>
@@ -72,7 +72,7 @@ export default async function TableReservation({ search, currentPage }) {
                                                 <button className="p-2 rounded-full group transition-all duration-500 hover:bg-red-600 flex item-center text-red-600 hover:text-white">
                                                     <MdDeleteOutline />
                                                 </button>
-                                            </td>
+                                            </td> */}
                                         </tr>
                                     ))
                                 ) : (
